@@ -34,7 +34,7 @@ var m
 	ctx1.textAlign = "center";
 	
 	w = .5*width
-	h = .6*height
+	h = .65*height
 	
 	xpos = 0
 	ypos = 0
@@ -55,7 +55,7 @@ var m
 	
 	n = 1
 	
-quantity.oninput = function() {
+
 	
 	ctx1.clearRect(0, 0, width, height);
 	PlotCircle(C[4])
@@ -67,11 +67,18 @@ quantity.oninput = function() {
 
 		C[n] = {x:xpos,y:ypos,r:rad}
 		
-		//PlotCircle(C[n])
+		PlotCircle(C[n])
 		//ctx1.fillText(n, w+C[n].x, h+C[n].y+5);
 		
 		n = n+1
 	}
+	
+quantity.oninput = function() {
+	ctx1.clearRect(0, 0, width, height);
+	PlotCircle(C[4])
+	PlotCircle(C[3])
+	PlotCircle(C[2])
+	PlotCircle(C[1])
 	
 	n=5
 	m=4
@@ -117,7 +124,7 @@ function getRad(r1,r2,r3)
 function PlotCircle(circle)
 {
 	w = .5*width
-	h = .6*height
+	h = .65*height
 	
 	ctx1.beginPath();
 	ctx1.arc(w+circle.x, h+circle.y, circle.r, 0, 2*Math.PI);
